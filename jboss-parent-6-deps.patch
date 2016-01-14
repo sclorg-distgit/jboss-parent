@@ -1,0 +1,134 @@
+diff -Naur jboss-parent-6/pom.xml jboss-parent-6-work/pom.xml
+--- jboss-parent-6/pom.xml	2011-06-27 19:15:18.000000000 -0400
++++ jboss-parent-6-work/pom.xml	2011-09-20 14:43:31.950257733 -0400
+@@ -94,7 +94,6 @@
+     <version.clean.plugin>2.4.1</version.clean.plugin>
+     <version.checkstyle.plugin>2.5</version.checkstyle.plugin>
+     <version.cobertura.plugin>2.4</version.cobertura.plugin>
+-    <version.clover2.plugin>3.0.2</version.clover2.plugin>
+     <version.compiler.plugin>2.3.1</version.compiler.plugin>
+     <version.dependency.plugin>2.1</version.dependency.plugin>
+     <version.deploy.plugin>2.5</version.deploy.plugin>
+@@ -102,14 +101,10 @@
+     <version.ear.plugin>2.4.2</version.ear.plugin>
+     <version.ejb.plugin>2.2.1</version.ejb.plugin>
+     <version.enforcer.plugin>1.0</version.enforcer.plugin>
+-    <version.findbugs.plugin>2.2</version.findbugs.plugin>
+     <version.idea.plugin>2.2</version.idea.plugin>
+-    <version.injection.plugin>1.0.2</version.injection.plugin>
+     <version.install.plugin>2.3.1</version.install.plugin>
+     <version.jar.plugin>2.3.1</version.jar.plugin>
+     <version.javadoc.plugin>2.8</version.javadoc.plugin>
+-    <version.javancss.plugin>2.0</version.javancss.plugin>
+-    <version.jdepend.plugin>2.0-beta-2</version.jdepend.plugin>
+     <version.jxr.plugin>2.2</version.jxr.plugin>
+     <version.license.plugin>1.0-beta-2</version.license.plugin>
+     <version.pir.plugin>2.2</version.pir.plugin><!-- maven-project-info-reports-plugins -->
+@@ -119,7 +114,6 @@
+     <version.release.plugin>2.1</version.release.plugin>
+     <version.resources.plugin>2.5</version.resources.plugin>
+     <version.site.plugin>3.0-beta-3</version.site.plugin>
+-    <version.sonar.plugin>1.0-beta-1</version.sonar.plugin>
+     <version.source.plugin>2.1.2</version.source.plugin>
+     <version.surefire.plugin>2.5</version.surefire.plugin>
+     <version.taglist.plugin>2.4</version.taglist.plugin>
+@@ -224,11 +218,6 @@
+           <version>${version.clean.plugin}</version>
+         </plugin>
+         <plugin>
+-          <groupId>com.atlassian.maven.plugins</groupId>
+-          <artifactId>maven-clover2-plugin</artifactId>
+-          <version>${version.clover2.plugin}</version>
+-        </plugin>
+-        <plugin>
+           <groupId>org.codehaus.mojo</groupId>
+           <artifactId>cobertura-maven-plugin</artifactId>
+           <version>${version.cobertura.plugin}</version>
+@@ -273,29 +262,11 @@
+           <version>${version.enforcer.plugin}</version>
+         </plugin>
+         <plugin>
+-          <groupId>org.codehaus.mojo</groupId>
+-          <artifactId>findbugs-maven-plugin</artifactId>
+-          <version>${version.findbugs.plugin}</version>
+-        </plugin>
+-        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-idea-plugin</artifactId>
+           <version>${version.idea.plugin}</version>
+         </plugin>
+         <plugin>
+-          <groupId>org.jboss.maven.plugins</groupId>
+-          <artifactId>maven-injection-plugin</artifactId>
+-          <version>${version.injection.plugin}</version>
+-          <executions>
+-            <execution>
+-              <phase>compile</phase>
+-              <goals>
+-                <goal>bytecode</goal>
+-              </goals>
+-            </execution>
+-          </executions>
+-        </plugin>
+-        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-install-plugin</artifactId>
+           <version>${version.install.plugin}</version>
+@@ -344,16 +315,6 @@
+           </configuration>
+         </plugin>
+         <plugin>
+-          <groupId>org.codehaus.mojo</groupId>
+-          <artifactId>javancss-maven-plugin</artifactId>
+-          <version>${version.javancss.plugin}</version>
+-        </plugin>
+-        <plugin>
+-          <groupId>org.codehaus.mojo</groupId>
+-          <artifactId>jdepend-maven-plugin</artifactId>
+-          <version>${version.jdepend.plugin}</version>
+-        </plugin>
+-        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-jxr-plugin</artifactId>
+           <version>${version.jxr.plugin}</version>
+@@ -394,11 +355,6 @@
+           <version>${version.site.plugin}</version>
+         </plugin>
+         <plugin>
+-          <groupId>org.codehaus.mojo</groupId>
+-          <artifactId>sonar-maven-plugin</artifactId>
+-          <version>${version.sonar.plugin}</version>
+-        </plugin>
+-        <plugin>
+           <groupId>org.apache.maven.plugins</groupId>
+           <artifactId>maven-source-plugin</artifactId>
+           <version>${version.source.plugin}</version>
+@@ -518,11 +474,6 @@
+       <reporting>
+         <plugins>
+           <plugin>
+-            <groupId>org.codehaus.mojo</groupId>
+-            <artifactId>findbugs-maven-plugin</artifactId>
+-            <version>${version.findbugs.plugin}</version>
+-          </plugin>
+-          <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-pmd-plugin</artifactId>
+             <version>${version.pmd.plugin}</version>
+@@ -533,16 +484,6 @@
+             <version>${version.checkstyle.plugin}</version>
+           </plugin>
+           <plugin>
+-            <groupId>org.codehaus.mojo</groupId>
+-            <artifactId>jdepend-maven-plugin</artifactId>
+-            <version>${version.jdepend.plugin}</version>
+-          </plugin>
+-          <plugin>
+-            <groupId>org.codehaus.mojo</groupId>
+-            <artifactId>javancss-maven-plugin</artifactId>
+-            <version>${version.javancss.plugin}</version>
+-          </plugin>
+-          <plugin>
+             <groupId>org.apache.maven.plugins</groupId>
+             <artifactId>maven-jxr-plugin</artifactId>
+             <version>${version.jxr.plugin}</version>
