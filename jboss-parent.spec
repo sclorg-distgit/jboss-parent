@@ -4,7 +4,7 @@
 
 Name:                 %{?scl_prefix}%{pkg_name}
 Version:              6
-Release:              12.10%{?dist}
+Release:              12.11%{?dist}
 Summary:              JBoss Parent POM
 License:              LGPLv2+
 URL:                  http://www.jboss.org/
@@ -18,11 +18,11 @@ BuildArch:            noarch
 
 BuildRequires:        %{?scl_prefix_java_common}javapackages-tools
 BuildRequires:        %{?scl_prefix_java_common}maven-local
-BuildRequires:        maven30-maven-install-plugin
-BuildRequires:        maven30-maven-javadoc-plugin
-BuildRequires:        maven30-maven-release-plugin
-BuildRequires:        maven30-maven-resources-plugin
-BuildRequires:        maven30-maven-enforcer-plugin
+BuildRequires:        %{?scl_prefix}maven-install-plugin
+BuildRequires:        %{?scl_prefix}maven-javadoc-plugin
+BuildRequires:        %{?scl_prefix}maven-release-plugin
+BuildRequires:        %{?scl_prefix}maven-resources-plugin
+BuildRequires:        %{?scl_prefix}maven-enforcer-plugin
 
 
 %description
@@ -30,19 +30,19 @@ The Project Object Model files for JBoss packages.
 
 %prep
 %setup -q -n %{pkg_name}-%{version}
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %patch0 -p1
 %{?scl:EOF}
 
 %build
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_build
 %{?scl:EOF}
 
 %install
-%{?scl:scl enable maven30 %{scl} - <<"EOF"}
+%{?scl:scl enable %{scl} - <<"EOF"}
 set -e -x
 %mvn_install
 %{?scl:EOF}
@@ -52,6 +52,9 @@ set -e -x
 %doc README.md
 
 %changelog
+* Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 6-12.11
+- maven33 rebuild #2
+
 * Sat Jan 09 2016 Michal Srb <msrb@redhat.com> - 6-12.10
 - maven33 rebuild
 
