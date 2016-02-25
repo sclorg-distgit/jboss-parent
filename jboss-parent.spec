@@ -4,7 +4,7 @@
 
 Name:                 %{?scl_prefix}%{pkg_name}
 Version:              6
-Release:              12.11%{?dist}
+Release:              12.12%{?dist}
 Summary:              JBoss Parent POM
 License:              LGPLv2+
 URL:                  http://www.jboss.org/
@@ -17,7 +17,7 @@ Patch0:               %{pkg_name}-%{version}-deps.patch
 BuildArch:            noarch
 
 BuildRequires:        %{?scl_prefix_java_common}javapackages-tools
-BuildRequires:        %{?scl_prefix_java_common}maven-local
+BuildRequires:        %{?scl_prefix}maven-local
 BuildRequires:        %{?scl_prefix}maven-install-plugin
 BuildRequires:        %{?scl_prefix}maven-javadoc-plugin
 BuildRequires:        %{?scl_prefix}maven-release-plugin
@@ -52,6 +52,9 @@ set -e -x
 %doc README.md
 
 %changelog
+* Mon Feb 08 2016 Michal Srb <msrb@redhat.com> - 6-12.12
+- Fix BR on maven-local & co.
+
 * Mon Jan 11 2016 Michal Srb <msrb@redhat.com> - 6-12.11
 - maven33 rebuild #2
 
